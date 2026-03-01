@@ -1,0 +1,294 @@
+.about {
+    background: linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.03) 50%, transparent);
+    margin-top: clamp(-30px, -5vw, -50px);
+    padding: clamp(30px, 5vw, 40px) clamp(1rem, 3vw, 2rem) !important;
+}
+
+.about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(30px, 5vw, 60px);
+    align-items: center;
+}
+
+/* Image Column */
+.about__image-col {
+    display: flex;
+    justify-content: center;
+}
+
+.about__image-wrapper {
+    position: relative;
+    width: clamp(280px, 40vw, 340px);
+    height: clamp(280px, 40vw, 340px);
+}
+
+/* Decorative Rings */
+.about__ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* GPU-accelerated rotation */
+    will-change: transform;
+}
+
+.about__ring--1 {
+    width: clamp(280px, 40vw, 340px);
+    height: clamp(280px, 40vw, 340px);
+    border-color: rgba(59, 130, 246, 0.15);
+    animation: spin-ring 20s linear infinite;
+}
+
+.about__ring--1::after {
+    content: '';
+    position: absolute;
+    width: clamp(7px, 2vw, 10px);
+    height: clamp(7px, 2vw, 10px);
+    background: var(--accent-blue);
+    border-radius: 50%;
+    top: clamp(-5px, -1.5vw, -5px);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px var(--accent-blue);
+}
+
+.about__ring--2 {
+    width: clamp(230px, 33vw, 280px);
+    height: clamp(230px, 33vw, 280px);
+    border-color: rgba(139, 92, 246, 0.12);
+    animation: counter-spin 15s linear infinite;
+}
+
+.about__ring--2::after {
+    content: '';
+    position: absolute;
+    width: clamp(6px, 1.5vw, 8px);
+    height: clamp(6px, 1.5vw, 8px);
+    background: var(--accent-purple);
+    border-radius: 50%;
+    bottom: clamp(-3px, -1vw, -4px);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px var(--accent-purple);
+}
+
+.about__ring--3 {
+    width: clamp(180px, 26vw, 220px);
+    height: clamp(180px, 26vw, 220px);
+    border-color: rgba(6, 182, 212, 0.1);
+    animation: spin-ring 25s linear infinite reverse;
+}
+
+/* Avatar */
+.about__avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(140px, 20vw, 180px);
+    height: clamp(140px, 20vw, 180px);
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+    border: clamp(1px, 0.3vw, 2px) solid rgba(59, 130, 246, 0.3);
+    overflow: hidden;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.about__avatar-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #0a1628, #0d0a2e);
+}
+
+.about__avatar-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.about__avatar-initials {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+/* Floating Badges */
+.about__badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1vw, 8px);
+    padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+    background: rgba(10, 18, 40, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: var(--radius-md);
+    font-size: clamp(11px, 1.2vw, 13px);
+    font-weight: 600;
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.about__badge--1 {
+    top: clamp(10px, 2vw, 20px);
+    right: clamp(-20px, -5vw, -20px);
+    animation: float 4s ease-in-out infinite;
+}
+
+.about__badge--2 {
+    bottom: clamp(10px, 2vw, 20px);
+    left: clamp(-20px, -5vw, -20px);
+    animation: float 5s ease-in-out infinite 1s;
+}
+
+/* Content */
+.about__content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 3vw, 20px);
+}
+
+.about__bio {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.about__bio strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Highlights */
+.about__highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(10px, 2vw, 12px);
+}
+
+.about__highlight-card {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2vw, 12px);
+    padding: clamp(12px, 2vw, 16px);
+    cursor: default;
+}
+
+.about__highlight-icon {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    flex-shrink: 0;
+}
+
+.about__highlight-label {
+    font-size: clamp(12px, 1.2vw, 14px);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.about__highlight-desc {
+    font-size: clamp(10px, 1vw, 12px);
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Actions */
+.about__actions {
+    display: flex;
+    gap: clamp(12px, 2vw, 16px);
+    flex-wrap: wrap;
+    margin-top: clamp(24px, 4vw, 32px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .about__grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about__grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about__image-col {
+        order: -1;
+    }
+
+    .about__actions {
+        justify-content: center;
+    }
+
+    .about__content {
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .about {
+        padding: 30px 0 !important;
+    }
+
+    /* Stop expensive ring rotations on mobile */
+    .about__ring--1,
+    .about__ring--2,
+    .about__ring--3 {
+        animation: none !important;
+        will-change: auto !important;
+    }
+
+    .about__highlights {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .about__badge {
+        font-size: 11px;
+        padding: 6px 12px;
+        /* Remove backdrop-filter on mobile \u2014 expensive GPU operation */
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        /* Stop badge float animation */
+        animation: none !important;
+    }
+
+    .about__badge--1 {
+        right: -10px;
+    }
+
+    .about__badge--2 {
+        left: -10px;
+    }
+
+    /* No lift hover on mobile \u2014 prevents layout thrashing */
+    .about__highlight-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .about__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .about__actions .btn {
+        width: 100% !important;
+    }
+}
